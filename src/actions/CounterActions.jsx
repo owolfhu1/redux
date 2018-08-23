@@ -4,4 +4,4 @@ export function incCounter() {
     return {
         type : CounterConstants.INC_COUNTER
     }
-};
+}
