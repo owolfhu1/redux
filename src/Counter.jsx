@@ -1,6 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as CounterActions from './actions/CounterActions.jsx';
 
-export default class Counter extends React.Component {
+
+
+class Counter extends React.Component {
 
     constructor() {
         super();
@@ -18,3 +22,11 @@ export default class Counter extends React.Component {
     }
 
 }
+
+Counter = connect(state => {
+    return {
+        counter:state.counter
+    }
+})(Counter);
+
+export default Counter;
