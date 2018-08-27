@@ -14,9 +14,12 @@ let ToDo = props =>
         <h1>{props.description}</h1>
         <p>{props.priority}</p>
         <p>status: {props.status}</p>
-        <button onClick={() => props.dispatch(ToDoActions.modifyTodoPriority(props.index))} style={{
-            background : props.status === 'todo' ? 'green' : 'red'
-        }}>{props.status === 'todo' ? 'finish' : 'not finished'}</button>
+        <button onClick={() => props.dispatch(ToDoActions.modifyTodoPriority(props.index))}
+                style={{background : props.status === 'todo' ? 'green' : 'yellow'}}>
+            {props.status === 'todo' ? 'finish' : 'not finished'}</button>
+        <button onClick={() => props.dispatch(ToDoActions.deleteTodo(props.index))}
+                style={{background : 'red'}}>
+            delete todo</button>
     </div>;
     
 ToDo = connect()(ToDo);

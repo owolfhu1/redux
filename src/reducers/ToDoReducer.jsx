@@ -20,6 +20,11 @@ export default function ToDoReducer(state=initState,action) {
             list[action.index].status = list[action.index].status === 'todo' ? 'finished' : 'todo';
             return {...state, list};
         }
+        case ToDoConstants.DELETE_TODO : {
+            let list = state.list;
+            list.splice(action.index,1);
+            return {...state, list};
+        }
     }
     return state;
 }

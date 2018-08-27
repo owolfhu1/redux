@@ -1,5 +1,13 @@
 import ToDoConstants from '../constants/ToDoConstants.jsx';
 
+export function deleteTodo(index) {
+    return {
+        type : ToDoConstants.DELETE_TODO,
+        index
+    }
+}
+
+
 export function postTodo(priority,description) {
     return {
         type : ToDoConstants.POST_TODO,
