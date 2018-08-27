@@ -7,22 +7,14 @@ const style = {
     margin : '20px'
 };
 
-class ToDo extends React.Component {
+const ToDo = props =>
+    <div style={style}>
+        <h1>{props.description}</h1>
+        <p>{props.priority}</p>
+        <p>status: {props.status}</p>
+        <button style={{
+            background : props.status === 'todo' ? 'green' : 'red'
+        }}>{props.status === 'todo' ? 'finish' : 'not finished'}</button>
+    </div>;
     
-    render(){
-        return (
-            <div style={style}>
-                <h1>{/*description*/}</h1>
-                <p>{/*priority*/}</p>
-                <p>status: {props.status}</p>
-                <button style={{
-                    background : props.status === 'todo' ? 'green' : 'red'
-                }}>{props.status === 'todo' ? 'finish' : 'not finished'}</button>
-            </div>
-        )
-    }
-    
-}
-
-
 export default ToDo;

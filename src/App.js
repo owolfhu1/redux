@@ -2,15 +2,21 @@ import React, { Component } from 'react';
 import './App.css';
 import { Provider } from 'react-redux';
 import Store from './store/store'
-import Counter from "./Counter";
+import Poster from "./components/Poster";
+import ToDos from "./components/ToDos";
 
 
 class App extends Component {
   render() {
     return (
-        <Provider store={Store}>
-            <Counter/>
-        </Provider>
+        <div>
+            <Provider store={Store}>
+                <Poster/>
+            </Provider>
+            <Provider store={Store}>
+                <ToDos todos={[]}/>
+            </Provider>
+        </div>
     );
   }
 }
