@@ -1,5 +1,6 @@
 import React from 'react';
-import * as ToDoActions from '../actions/TodoActions.jsx';
+import * as ToDoActions from '../actions/ToDoActions.jsx';
+import {connect} from "react-redux";
 
 const style = {
     border : 'black solid 1px',
@@ -28,6 +29,10 @@ class Poster extends React.Component {
     
     postTodo(){
         this.props.dispatch(ToDoActions.postTodo(this.state.priority,this.state.description));
+        this.setState({
+            priority : 'MEDIUM',
+            description : '',
+        });
     }
     
     render() {
@@ -49,5 +54,7 @@ class Poster extends React.Component {
         )
     }
 }
+
+Poster = connect()(Poster);
 
 export default Poster;

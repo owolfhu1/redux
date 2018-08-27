@@ -18,7 +18,7 @@ export default function ToDoReducer(state=initState,action) {
         case ToDoConstants.MODIFY_TODO : {
             let list = state.list;
             list[action.index].status = list[action.index].status === 'todo' ? 'finished' : 'todo';
-            return {...state,list};
+            return {...state, list};
         }
     }
     return state;

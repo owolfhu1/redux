@@ -10,6 +10,7 @@ const style = {
 };
 
 const printTodos = todos => {
+    console.log(todos);
   let list = [];
   for (let i in todos)
       list.push(<ToDo description={todos[i].description}
@@ -23,7 +24,7 @@ class ToDos extends React.Component {
     render() {
         return (
             <div style={style}>
-                {printTodos(this.props.list)}
+                {printTodos(this.props.todo)}
             </div>
         );
     }
@@ -31,7 +32,7 @@ class ToDos extends React.Component {
 
 ToDos = connect(state => {
     return {
-        list:state.list
+        todo:state.list
     }
 })(ToDos);
 
