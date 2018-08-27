@@ -18,6 +18,10 @@ class Poster extends React.Component {
             description : '',
         }
     }
+
+    componentDidMount() {
+       this.props.dispatch(ToDoActions.fetchData());
+    }
     
     changePriority(e){
         this.setState({priority:e.target.value})
@@ -26,7 +30,12 @@ class Poster extends React.Component {
     changeDescription(e){
         this.setState({description:e.target.value})
     }
-    
+
+    keyUp(e) {
+        if (e.key === 'Enter')
+            this.postTodo();
+    }
+
     postTodo(){
         this.props.dispatch(ToDoActions.postTodo(this.state.priority,this.state.description));
         this.setState({
@@ -44,7 +53,8 @@ class Poster extends React.Component {
                     <option value="MEDIUM">MEDIUM</option>
                     <option value="HIGH">HIGH</option>
                 </select>
-                <input value={this.state.description}
+                <input onKeyUp={this.keyUp.bind(this)}
+                       value={this.state.description}
                        placeholder="description"
                        onChange={this.changeDescription.bind(this)}/>
                 <button onClick={this.postTodo.bind(this)}>

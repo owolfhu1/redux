@@ -21,19 +21,14 @@ const printTodos = todos => {
   return list;
 };
 
-class ToDos extends React.Component {
-    render() {
-        return (
-            <div style={style}>
-                {printTodos(this.props.state.todo.list)}
-            </div>
-        );
-    }
-}
+let ToDos = props =>
+    <div style={style}>
+        {printTodos(props.store.todo.list)}
+    </div>;
 
-ToDos = connect(state => {
+ToDos = connect(store => {
     return {
-        state
+        store
     }
 })(ToDos);
 
